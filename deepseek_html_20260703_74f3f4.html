@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دورة التنفس الصناعي - دكتور كمال</title>
+  <!-- خطوط جوجل العربية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome للأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9edf5 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #1e2a4a;
+    }
+
+    .card {
+      max-width: 850px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 40px;
+      box-shadow: 0 20px 60px rgba(26, 40, 80, 0.15);
+      padding: 40px 35px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    /* الشعار والعنوان */
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #0a2540;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 6px 18px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      border: 1px solid #2d4b6e;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #0a1f38;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    h1 i {
+      color: #2a7de1;
+      margin-left: 10px;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #2c3f66;
+      background: rgba(42, 125, 225, 0.08);
+      display: inline-block;
+      padding: 5px 20px;
+      border-radius: 50px;
+      font-weight: 500;
+      border: 1px solid rgba(42, 125, 225, 0.15);
+    }
+
+    .doctor-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a4b8c;
+      margin: 15px 0 5px;
+    }
+
+    .doctor-name i {
+      color: #f3b23a;
+      margin-left: 8px;
+    }
+
+    /* قسم الوصف */
+    .description {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 22px 25px;
+      border-radius: 28px;
+      margin: 25px 0;
+      border-right: 6px solid #2a7de1;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: #1f3557;
+    }
+
+    .description i {
+      color: #2a7de1;
+      margin-left: 8px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .highlight-box {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 20px 25px;
+      margin: 20px 0;
+      box-shadow: 0 6px 18px rgba(0, 20, 50, 0.06);
+      border: 1px solid #e8edf6;
+    }
+
+    .highlight-box h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0a2540;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .highlight-box h3 i {
+      color: #2a7de1;
+      font-size: 1.4rem;
+    }
+
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .features-grid li {
+      flex: 1 1 200px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: #1f3a5f;
+      background: #f0f4fe;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.95rem;
+    }
+
+    .features-grid li i {
+      color: #2a7de1;
+      font-size: 1rem;
+      width: 20px;
+    }
+
+    /* أسعار */
+    .price-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px 40px;
+      background: #ffffff;
+      padding: 18px 20px;
+      border-radius: 60px;
+      margin: 25px 0 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border: 1px solid #dee7f2;
+    }
+
+    .price-item {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #0a2540;
+    }
+
+    .price-item small {
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #3e5a7a;
+      margin-left: 4px;
+    }
+
+    .price-item i {
+      color: #f3b23a;
+      margin-left: 8px;
+      font-size: 1.2rem;
+    }
+
+    .price-item span {
+      background: #eef4ff;
+      padding: 2px 12px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #1a4b8c;
+    }
+
+    /* روابط التواصل */
+    .contact-section {
+      margin: 30px 0 10px;
+      text-align: center;
+    }
+
+    .contact-section p {
+      font-weight: 500;
+      margin-bottom: 18px;
+      color: #1f3a5f;
+      font-size: 1.1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 34px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+      min-width: 200px;
+      background: #ffffff;
+      color: #0a2540;
+      border-color: #cdd9eb;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .btn i {
+      font-size: 1.3rem;
+    }
+
+    .btn-telegram {
+      background: #0088cc;
+      color: #fff;
+      border-color: #0088cc;
+      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.25);
+    }
+
+    .btn-telegram:hover {
+      background: #0077b3;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 136, 204, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: #2a7de1;
+      color: #2a7de1;
+    }
+
+    .btn-outline:hover {
+      background: #2a7de1;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(42, 125, 225, 0.25);
+    }
+
+    .btn-free {
+      background: #1f8b4c;
+      color: #fff;
+      border-color: #1f8b4c;
+      box-shadow: 0 8px 20px rgba(31, 139, 76, 0.2);
+    }
+
+    .btn-free:hover {
+      background: #167a3e;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(31, 139, 76, 0.3);
+    }
+
+    .footnote {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #5b7196;
+      border-top: 1px solid #dbe2ed;
+      padding-top: 25px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 25px;
+    }
+
+    .footnote i {
+      margin-left: 6px;
+      color: #2a7de1;
+    }
+
+    /* استجابة للجوال */
+    @media (max-width: 600px) {
+      .card {
+        padding: 25px 18px;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .price-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        border-radius: 30px;
+        padding: 16px;
+      }
+      .btn {
+        width: 100%;
+        min-width: unset;
+        padding: 14px 20px;
+      }
+      .features-grid li {
+        flex: 1 1 100%;
+      }
+      .description {
+        padding: 18px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- الهيدر -->
+  <div class="header">
+    <div class="badge">
+      <i class="fas fa-graduation-cap"></i> دورة معتمدة
+    </div>
+    <h1>
+      <i class="fas fa-lungs"></i> Mechanical Ventilation
+    </h1>
+    <div class="subhead">
+      <i class="fas fa-microphone-alt"></i> دورة شاملة من تقديم دكتور كمال
+    </div>
+    <div class="doctor-name">
+      <i class="fas fa-user-md"></i> د. كمال
+    </div>
+  </div>
+
+  <!-- الوصف -->
+  <div class="description">
+    <p>
+      <i class="fas fa-quote-right"></i> دورة شاملة مقدمة من دكتور كمال لمساعدة طلاب الرعاية الطبية على فهم الأسس النظرية لجهاز التنفس الصناعي.
+    </p>
+    <p style="margin-top: 8px;">
+      <i class="fas fa-users"></i> مناسبة لـ: <strong>طلاب العلاج التنفسي</strong>، <strong>الخريجين</strong>، <strong>أطباء العناية المركزة</strong>، وكل ممارسي الرعاية الصحية الذين يتعاملون مع جهاز التنفس الصناعي.
+    </p>
+  </div>
+
+  <!-- المحتوى والمميزات -->
+  <div class="highlight-box">
+    <h3>
+      <i class="fas fa-video"></i> ماذا ستتعلم؟
+    </h3>
+    <ul class="features-grid">
+      <li><i class="fas fa-check-circle"></i> شرح نظري + أكثر من 100 فيديو</li>
+      <li><i class="fas fa-sliders-h"></i> أساسيات التنفس الصناعي</li>
+      <li><i class="fas fa-microchip"></i> فهم جميع Modes والإعدادات</li>
+      <li><i class="fas fa-chart-line"></i> VENT Graphics بالتفصيل</li>
+      <li><i class="fas fa-heartbeat"></i> التعامل مع الأمراض المختلفة</li>
+      <li><i class="fas fa-user-graduate"></i> محتوى متكامل للممارسين</li>
+    </ul>
+  </div>
+
+  <!-- الأسعار -->
+  <div class="price-row">
+    <div class="price-item">
+      <i class="fas fa-riyal-sign"></i> 65 <small>ريال سعودي</small>
+      <span>🇸🇦</span>
+    </div>
+    <div class="price-item">
+      <i class="fas fa-pound-sign"></i> 600 <small>جنيه مصري</small>
+      <span>🇪🇬</span>
+    </div>
+  </div>
+
+  <!-- روابط التواصل -->
+  <div class="contact-section">
+    <p>
+      <i class="fas fa-paper-plane" style="color: #2a7de1;"></i> 
+      للتواصل وطلب الدورة
+    </p>
+    <div class="btn-group">
+
+      <!-- رابط الشرح المجاني تليجرام -->
+      <a href="https://t.me/mvdockamal" target="_blank" class="btn btn-free">
+        <i class="fab fa-telegram-plane"></i> شرح مجاني
+      </a>
+
+      <!-- رابط التواصل المباشر (للطلب) -->
+      <a href="https://t.me/DrAkamal3" target="_blank" class="btn btn-telegram">
+        <i class="fab fa-telegram-plane"></i> تواصل وطلب
+      </a>
+
+      <!-- رابط احتياطي -->
+      <a href="https://t.me/DrAkamal3" target="_blank" class="btn btn-outline">
+        <i class="fas fa-comment-dots"></i> راسلنا الآن
+      </a>
+
+    </div>
+  </div>
+
+  <!-- تذييل بسيط -->
+  <div class="footnote">
+    <span><i class="fas fa-lock"></i> الدورة متاحة عبر التليجرام</span>
+    <span><i class="fas fa-headset"></i> دعم فني متواصل</span>
+    <span><i class="fas fa-clock"></i> وصول فوري بعد الطلب</span>
+  </div>
+
+</div>
+
+</body>
+</html>
